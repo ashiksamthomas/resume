@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashik Sam Thomas - Professional Resume</title>
     <style>
+        /* General Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -17,9 +18,10 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 40px 20px; /* Base padding for larger screens */
         }
 
+        /* Resume Container */
         .resume-container {
             max-width: 850px;
             margin: 0 auto;
@@ -30,6 +32,7 @@
             position: relative;
         }
 
+        /* Decorative top border */
         .resume-container::before {
             content: '';
             position: absolute;
@@ -40,15 +43,17 @@
             background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
         }
 
+        /* Header Section */
         .header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 50px 40px;
+            padding: 50px 40px; /* Base padding */
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
+        /* Header background animation */
         .header::before {
             content: '';
             position: absolute;
@@ -70,6 +75,7 @@
             z-index: 2;
         }
 
+        /* Name and Title styles */
         .name {
             font-size: 3.5em;
             font-weight: 700;
@@ -87,11 +93,12 @@
             letter-spacing: 1px;
         }
 
+        /* Contact Information */
         .contact-info {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 30px; /* Base gap */
             font-size: 1.1em;
         }
 
@@ -116,8 +123,9 @@
             text-decoration: none;
         }
 
+        /* Main Content Area */
         .main-content {
-            padding: 50px 40px;
+            padding: 50px 40px; /* Base padding */
         }
 
         .section {
@@ -145,12 +153,13 @@
             border-radius: 2px;
         }
 
+        /* Professional Summary */
         .summary-text {
             font-size: 1.1em;
             line-height: 1.8;
             color: #555;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 30px;
+            padding: 30px; /* Base padding */
             border-radius: 15px;
             border-left: 5px solid #667eea;
             position: relative;
@@ -167,9 +176,10 @@
             border-left: 4px solid #667eea;
         }
 
+        /* Core Expertise / Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Base grid */
             gap: 25px;
         }
 
@@ -231,10 +241,11 @@
             font-size: 0.8em;
         }
 
+        /* Experience Section */
         .experience-item {
             background: white;
             border-radius: 15px;
-            padding: 30px;
+            padding: 30px; /* Base padding */
             margin-bottom: 30px;
             border-left: 5px solid #667eea;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
@@ -309,9 +320,10 @@
             color: #1e3c72;
         }
 
+        /* Certifications */
         .certifications {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Base grid */
             gap: 20px;
         }
 
@@ -330,8 +342,10 @@
             box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
         }
 
+        /* Key Differentiators */
         .differentiators {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            /* Changed background color */
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
             padding: 30px;
             border-radius: 20px;
@@ -346,6 +360,7 @@
 
         .diff-grid {
             display: grid;
+            /* Allow items to be side-by-side on larger screens, wrap on smaller */
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 25px;
         }
@@ -364,18 +379,7 @@
             font-size: 1.1em;
         }
 
-        .footer-quote {
-            text-align: center;
-            font-size: 1.3em;
-            font-style: italic;
-            color: #1e3c72;
-            margin-top: 40px;
-            padding: 25px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(245, 87, 108, 0.1));
-            border-radius: 15px;
-            border: 2px dashed #667eea;
-        }
-
+        /* Tech Tags */
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
@@ -392,29 +396,164 @@
             font-weight: 500;
         }
 
+        /* --- Mobile Optimizations (max-width: 768px) --- */
         @media (max-width: 768px) {
+            body {
+                padding: 20px 10px; /* Reduced body padding for smaller screens */
+            }
+
             .resume-container {
-                margin: 0;
-                border-radius: 0;
+                margin: 0; /* Remove horizontal margin */
+                border-radius: 0; /* Remove border-radius to fill screen width */
+                box-shadow: none; /* Reduce shadow for a cleaner look on mobile */
             }
-            
+
             .header, .main-content {
-                padding: 30px 20px;
+                padding: 30px 20px; /* Adjusted padding for main sections */
             }
-            
+
             .name {
-                font-size: 2.5em;
+                font-size: 2.2em; /* Smaller font size for name */
+                margin-bottom: 10px;
             }
-            
+
+            .title {
+                font-size: 1.1em; /* Smaller font size for title */
+                margin-bottom: 20px;
+            }
+
             .contact-info {
-                flex-direction: column;
+                flex-direction: column; /* Stack contact items vertically */
                 align-items: center;
-                gap: 15px;
+                gap: 10px; /* Reduced gap between contact items */
+                font-size: 1em; /* Slightly smaller contact info font */
             }
-            
+
+            .contact-item {
+                padding: 6px 12px; /* Smaller padding for contact items */
+            }
+
+            .section-title {
+                font-size: 1.6em; /* Smaller section titles */
+                margin-bottom: 20px;
+            }
+
+            .summary-text {
+                font-size: 1em; /* Adjusted summary text font size */
+                padding: 20px; /* Reduced padding for summary */
+            }
+
+            .value-prop {
+                font-size: 0.95em; /* Adjusted value prop font size */
+                padding: 12px;
+            }
+
+            /* Force skills and certifications grid layouts to stack vertically on mobile */
+            .skills-grid,
+            .certifications {
+                grid-template-columns: 1fr; /* Single column layout for these grids */
+            }
+
+            .skill-category {
+                padding: 20px; /* Reduced padding for skill categories */
+            }
+
+            .skill-category h4 {
+                font-size: 1.2em;
+            }
+
+            .experience-item {
+                padding: 20px; /* Reduced padding for experience items */
+                margin-bottom: 20px;
+            }
+
             .job-header {
-                flex-direction: column;
+                flex-direction: column; /* Stack job title and company vertically */
                 align-items: flex-start;
+                gap: 10px; /* Reduced gap */
+            }
+
+            .job-title {
+                font-size: 1.2em; /* Smaller job title */
+            }
+
+            .company {
+                font-size: 1em; /* Smaller company font */
+            }
+
+            .date {
+                font-size: 0.8em; /* Smaller date font */
+                padding: 6px 12px;
+            }
+
+            .achievements li {
+                font-size: 0.95em; /* Adjusted achievements list font size */
+                padding-left: 20px; /* Maintain checkmark alignment */
+            }
+
+            .differentiators {
+                padding: 25px; /* Reduced padding for differentiators */
+            }
+
+            .differentiators h3 {
+                font-size: 1.4em; /* Smaller differentiator title */
+            }
+
+            .diff-item {
+                padding: 15px; /* Reduced padding for diff items */
+            }
+
+            .diff-item strong {
+                font-size: 1em; /* Adjusted diff item strong text */
+            }
+        }
+
+        /* Further optimization for very small screens (e.g., iPhone SE) */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px 8px;
+            }
+
+            .header, .main-content {
+                padding: 25px 15px;
+            }
+
+            .name {
+                font-size: 1.8em; /* Even smaller font for name */
+            }
+
+            .title {
+                font-size: 0.9em; /* Even smaller font for title */
+            }
+
+            .contact-info {
+                gap: 8px;
+                font-size: 0.9em;
+            }
+
+            .section-title {
+                font-size: 1.4em; /* Smaller section titles */
+            }
+
+            .summary-text {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+
+            .experience-item {
+                padding: 15px;
+            }
+
+            .job-title {
+                font-size: 1.1em;
+            }
+
+            .achievements li {
+                font-size: 0.9em;
+            }
+            /* Adjust minmax for very small screens for differentiators */
+            .diff-grid {
+                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Allow smaller minimum width for wrapping */
             }
         }
     </style>
@@ -445,19 +584,16 @@
                 </div>
             </div>
         </div>
-
         <div class="main-content">
             <div class="section">
                 <h2 class="section-title">PROFESSIONAL SUMMARY</h2>
                 <div class="summary-text">
                     Results-driven Business Consultant with <strong>10+ years of experience</strong> helping SMBs accelerate growth through strategic demand generation, website optimization, and lead generation systems. Partner at Normandy Digital Marketing LLP, specializing in marketing automation and data-driven solutions that deliver measurable ROI. Known for rapid problem-solving and creating efficient, automated workflows that scale businesses from startup to enterprise level.
-                    
                     <div class="value-prop">
                         <strong>Core Value Proposition:</strong> "I help small and medium businesses optimize their marketing operations through technology and automation, acting as their dedicated problem-solver who turns marketing chaos into streamlined revenue engines."
                     </div>
                 </div>
             </div>
-
             <div class="section">
                 <h2 class="section-title">CORE EXPERTISE</h2>
                 <div class="skills-grid">
@@ -503,10 +639,8 @@
                     </div>
                 </div>
             </div>
-
             <div class="section">
                 <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
-                
                 <div class="experience-item">
                     <div class="job-header">
                         <div>
@@ -524,7 +658,6 @@
                         <li><strong>Real-Time Analytics:</strong> Established weekly and monthly reporting systems with live dashboards for data-driven decision making</li>
                     </ul>
                 </div>
-
                 <div class="experience-item">
                     <div class="job-header">
                         <div>
@@ -542,7 +675,6 @@
                         <li><strong>Cross-Platform Integration:</strong> Successfully converted and optimized campaigns across Upwork and Fiverr platforms</li>
                     </ul>
                 </div>
-
                 <div class="experience-item">
                     <div class="job-header">
                         <div>
@@ -559,7 +691,6 @@
                         <li><strong>Quote Process Automation:</strong> Streamlined entire quote-to-delivery process, significantly improving operational efficiency</li>
                     </ul>
                 </div>
-
                 <div class="experience-item">
                     <div class="job-header">
                         <div>
@@ -578,7 +709,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="section">
                 <h2 class="section-title">CERTIFICATIONS & CREDENTIALS</h2>
                 <div class="certifications">
@@ -587,8 +717,7 @@
                         Advanced campaign strategy and automation
                     </div>
                     <div class="cert-item">
-                        <strong>Marketing Automation Certification</strong><br>
-                        Workflow design and implementation
+                        <strong>Marketing Automation Certification</strong><                        Workflow design and implementation
                     </div>
                     <div class="cert-item">
                         <strong>Google Analytics Certified</strong><br>
@@ -596,7 +725,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="differentiators">
                 <h3>KEY DIFFERENTIATORS</h3>
                 <div class="diff-grid">
@@ -617,10 +745,6 @@
                         Seamlessly connects disparate marketing tools and platforms to create unified, efficient workflows.
                     </div>
                 </div>
-            </div>
-
-            <div class="footer-quote">
-                "I don't just implement marketing solutions—I engineer growth systems that work while you sleep."
             </div>
         </div>
     </div>
