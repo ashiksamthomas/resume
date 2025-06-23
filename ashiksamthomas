@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashik Sam Thomas - Professional Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .resume-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .name {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+
+        .title {
+            font-size: 1.4em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            font-size: 1.1em;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .main-content {
+            padding: 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+            border-radius: 2px;
+        }
+
+        .summary-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            position: relative;
+        }
+
+        .value-prop {
+            font-style: italic;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: white;
+            border: 2px solid #e8ecf4;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-category h4 {
+            font-size: 1.3em;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 5px 0;
+            color: #666;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-category li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.8em;
+        }
+
+        .experience-item {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .job-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1.1em;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .date {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .achievements {
+            list-style: none;
+        }
+
+        .achievements li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            background: rgba(40, 167, 69, 0.1);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+        }
+
+        .achievements strong {
+            color: #1e3c72;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .differentiators {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        .differentiators h3 {
+            font-size: 1.6em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .diff-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .diff-item strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .footer-quote {
+            text-align: center;
+            font-size: 1.3em;
+            font-style: italic;
+            color: #1e3c72;
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(245, 87, 108, 0.1));
+            border-radius: 15px;
+            border: 2px dashed #667eea;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .header, .main-content {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2.5em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">ASHIK SAM THOMAS</h1>
+                <p class="title">Business Consultant | Demand Generation & Marketing Automation Specialist</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:ashik.thomas19@gmail.com">ashik.thomas19@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>+91-9844064964</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Coimbatore, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🔗</span>
+                        <a href="https://www.linkedin.com/in/ashiksamthomas/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">PROFESSIONAL SUMMARY</h2>
+                <div class="summary-text">
+                    Results-driven Business Consultant with <strong>10+ years of experience</strong> helping SMBs accelerate growth through strategic demand generation, website optimization, and lead generation systems. Partner at Normandy Digital Marketing LLP, specializing in marketing automation and data-driven solutions that deliver measurable ROI. Known for rapid problem-solving and creating efficient, automated workflows that scale businesses from startup to enterprise level.
+                    
+                    <div class="value-prop">
+                        <strong>Core Value Proposition:</strong> "I help small and medium businesses optimize their marketing operations through technology and automation, acting as their dedicated problem-solver who turns marketing chaos into streamlined revenue engines."
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">CORE EXPERTISE</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Demand Generation & Lead Generation</h4>
+                        <ul>
+                            <li>End-to-end email marketing funnel development</li>
+                            <li>Lead nurturing workflows and automation</li>
+                            <li>Multi-channel lead acquisition strategies</li>
+                            <li>Conversion rate optimization and lead scoring</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Website Development & Optimization</h4>
+                        <ul>
+                            <li>Custom website development and maintenance</li>
+                            <li>Data analytics implementation and tracking</li>
+                            <li>User experience optimization for conversion</li>
+                            <li>E-commerce integration and automation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Marketing Technology & Automation</h4>
+                        <ul>
+                            <li>HubSpot, Zoho Suite, Google Workspace integration</li>
+                            <li>Google Apps Script, Power BI, Power Query</li>
+                            <li>CRM implementation and data migration</li>
+                            <li>Marketing automation workflow design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Technical Proficiencies</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Google Analytics</span>
+                            <span class="tech-tag">Meta Business Manager</span>
+                            <span class="tech-tag">Google Ads</span>
+                            <span class="tech-tag">HubSpot</span>
+                            <span class="tech-tag">Zoho Suite</span>
+                            <span class="tech-tag">Mailchimp</span>
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">ChatGPT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Partner & Director</div>
+                            <div class="company">Normandy Digital Marketing LLP</div>
+                        </div>
+                        <div class="date">October 2020 - Present</div>
+                    </div>
+                    <p style="margin-bottom: 20px; color: #666; font-style: italic;">Leading full-service digital marketing consultancy focused on B2C companies in Tier-2 Indian cities, delivering comprehensive marketing operations and growth solutions.</p>
+                    <ul class="achievements">
+                        <li><strong>Client Portfolio Management:</strong> Successfully manage B2B and B2C client accounts, delivering consistent growth metrics</li>
+                        <li><strong>Lead Generation Excellence:</strong> Implemented systematic lead generation processes resulting in measurable client acquisition improvements</li>
+                        <li><strong>Social Media & Content Strategy:</strong> Developed and executed social media marketing campaigns for B2C customers, driving engagement and conversions</li>
+                        <li><strong>Video Marketing Innovation:</strong> Created comprehensive video marketing and content production workflows for enhanced brand visibility</li>
+                        <li><strong>Real-Time Analytics:</strong> Established weekly and monthly reporting systems with live dashboards for data-driven decision making</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Freelance Marketing Data & Analytics Consultant</div>
+                            <div class="company">Independent Consultant</div>
+                        </div>
+                        <div class="date">January 2020 - September 2020</div>
+                    </div>
+                    <p style="margin-bottom: 20px; color: #666; font-style: italic;">Specialized in marketing data analysis and lead generation system optimization for various clients.</p>
+                    <ul class="achievements">
+                        <li><strong>Lead Acquisition System:</strong> Built comprehensive lead generation system using Upwork platform with strategic targeting criteria</li>
+                        <li><strong>Revenue Impact:</strong> Secured projects worth $10K+ through optimized marketing analytics and proposal strategies</li>
+                        <li><strong>Backend Development:</strong> Developed robust data infrastructure for e-commerce analytics and tracking</li>
+                        <li><strong>Automated Response Systems:</strong> Created intelligent lead response systems for high-volume ecosystems</li>
+                        <li><strong>Cross-Platform Integration:</strong> Successfully converted and optimized campaigns across Upwork and Fiverr platforms</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Workflow Administrator</div>
+                            <div class="company">Yenem Engineering Services</div>
+                        </div>
+                        <div class="date">September 2016 - September 2022</div>
+                    </div>
+                    <p style="margin-bottom: 20px; color: #666; font-style: italic;">Managed complete workflow optimization for structural engineering firm specializing in mining and water treatment plant projects.</p>
+                    <ul class="achievements">
+                        <li><strong>Process Optimization:</strong> Transformed lead-to-proposal timeline from 72 hours to 1.5 hours through systematic workflow improvements</li>
+                        <li><strong>Productivity Dashboard:</strong> Developed comprehensive tracking system for client management, staff productivity, and revenue monitoring</li>
+                        <li><strong>Google Ecosystem Integration:</strong> Implemented end-to-end workflow management using Google Workspace tools</li>
+                        <li><strong>Quote Process Automation:</strong> Streamlined entire quote-to-delivery process, significantly improving operational efficiency</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Digital Marketing Specialist</div>
+                            <div class="company">Insight Consultants</div>
+                        </div>
+                        <div class="date">September 2014 - June 2024</div>
+                    </div>
+                    <p style="margin-bottom: 20px; color: #666; font-style: italic;">Led digital marketing initiatives for B2B tech services company serving USA and Australia markets.</p>
+                    <ul class="achievements">
+                        <li><strong>Revenue Growth:</strong> Contributed to $50K+ revenue growth through optimized email marketing and lead generation strategies</li>
+                        <li><strong>Multi-Platform Integration:</strong> Successfully managed MailChimp, Google Analytics, WordPress, and HubSpot ecosystems</li>
+                        <li><strong>Event Management:</strong> Coordinated marketing for high-value financial services events, including Lend360 & Lendit conferences</li>
+                        <li><strong>Website Development:</strong> Created and maintained multiple website versions with integrated analytics and tracking systems</li>
+                        <li><strong>Process Automation:</strong> Developed automated workflows that reduced manual marketing tasks by 60%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">CERTIFICATIONS & CREDENTIALS</h2>
+                <div class="certifications">
+                    <div class="cert-item">
+                        <strong>Email Marketing Certification</strong><br>
+                        Advanced campaign strategy and automation
+                    </div>
+                    <div class="cert-item">
+                        <strong>Marketing Automation Certification</strong><br>
+                        Workflow design and implementation
+                    </div>
+                    <div class="cert-item">
+                        <strong>Google Analytics Certified</strong><br>
+                        Data analysis and conversion tracking
+                    </div>
+                </div>
+            </div>
+
+            <div class="differentiators">
+                <h3>KEY DIFFERENTIATORS</h3>
+                <div class="diff-grid">
+                    <div class="diff-item">
+                        <strong>Automation-First Approach</strong>
+                        Being naturally inclined toward efficiency, I consistently develop automated solutions that eliminate repetitive tasks and scale marketing operations seamlessly.
+                    </div>
+                    <div class="diff-item">
+                        <strong>Crisis Management Excellence</strong>
+                        Proven ability to remain calm under pressure and deliver rapid solutions during critical business situations.
+                    </div>
+                    <div class="diff-item">
+                        <strong>Rapid Turnaround Capability</strong>
+                        Known for quick problem identification and implementation of effective solutions, often within 24-48 hours.
+                    </div>
+                    <div class="diff-item">
+                        <strong>Technology Integration Expertise</strong>
+                        Seamlessly connects disparate marketing tools and platforms to create unified, efficient workflows.
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-quote">
+                "I don't just implement marketing solutions—I engineer growth systems that work while you sleep."
+            </div>
+        </div>
+    </div>
+</body>
+</html>
