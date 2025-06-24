@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashik Sam Thomas - Professional Resume</title>
+    <!-- Font Awesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlalH2V/3BwJj6g7N7+jL2m9O8e2d2p5R6Fz4u5E9fG4Z3e6i5D6f5Z6p5K5h5J5N5F5M5o5S5" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* General Reset & Base Styles */
         * {
@@ -121,6 +123,10 @@
         .contact-item a {
             color: white;
             text-decoration: none;
+        }
+        /* Style for Font Awesome icons in contact info */
+        .contact-item .fas, .contact-item .fab { /* Added .fab for LinkedIn icon */
+            font-size: 1.1em; /* Adjust icon size to match text */
         }
 
         /* Main Content Area */
@@ -345,7 +351,7 @@
         /* Key Differentiators */
         .differentiators {
             /* Changed background color */
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%); /* New gradient */
             color: white;
             padding: 30px;
             border-radius: 20px;
@@ -360,23 +366,30 @@
 
         .diff-grid {
             display: grid;
-            /* Allow items to be side-by-side on larger screens, wrap on smaller */
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* Explicitly 2 columns on larger screens */
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
         }
 
         .diff-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.15); /* Slightly less transparent */
+            padding: 25px; /* Increased padding */
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Slightly more visible border */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+            transition: all 0.3s ease;
+        }
+        .diff-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .diff-item strong {
             display: block;
             margin-bottom: 10px;
-            font-size: 1.1em;
+            font-size: 1.2em; /* Slightly larger heading */
+            color: #ebf0f8; /* Lighter color for better contrast on dark background */
         }
 
         /* Tech Tags */
@@ -506,6 +519,10 @@
             .diff-item strong {
                 font-size: 1em; /* Adjusted diff item strong text */
             }
+            /* Differentiators always stack on mobile */
+            .diff-grid {
+                 grid-template-columns: 1fr; /* Force single column on smaller screens */
+            }
         }
 
         /* Further optimization for very small screens (e.g., iPhone SE) */
@@ -551,10 +568,6 @@
             .achievements li {
                 font-size: 0.9em;
             }
-            /* Adjust minmax for very small screens for differentiators */
-            .diff-grid {
-                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Allow smaller minimum width for wrapping */
-            }
         }
     </style>
 </head>
@@ -566,19 +579,19 @@
                 <p class="title">Business Consultant | Demand Generation & Marketing Automation Specialist</p>
                 <div class="contact-info">
                     <div class="contact-item">
-                        <span>📧</span>
+                        <i class="fas fa-envelope"></i> <!-- Replaced emoji with Font Awesome icon -->
                         <a href="mailto:ashik.thomas19@gmail.com">ashik.thomas19@gmail.com</a>
                     </div>
                     <div class="contact-item">
-                        <span>📱</span>
+                        <i class="fas fa-phone-alt"></i> <!-- Replaced emoji with Font Awesome icon -->
                         <span>+91-9844064964</span>
                     </div>
                     <div class="contact-item">
-                        <span>📍</span>
+                        <i class="fas fa-map-marker-alt"></i> <!-- Replaced emoji with Font Awesome icon -->
                         <span>Coimbatore, India</span>
                     </div>
                     <div class="contact-item">
-                        <span>🔗</span>
+                        <i class="fab fa-linkedin"></i> <!-- Replaced emoji with Font Awesome icon -->
                         <a href="https://www.linkedin.com/in/ashiksamthomas/" target="_blank">LinkedIn</a>
                     </div>
                 </div>
@@ -717,7 +730,8 @@
                         Advanced campaign strategy and automation
                     </div>
                     <div class="cert-item">
-                        <strong>Marketing Automation Certification</strong><                        Workflow design and implementation
+                        <strong>Marketing Automation Certification</strong><br>
+                        Workflow design and implementation
                     </div>
                     <div class="cert-item">
                         <strong>Google Analytics Certified</strong><br>
